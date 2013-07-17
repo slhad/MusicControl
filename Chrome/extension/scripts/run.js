@@ -2,7 +2,8 @@ var SERVER_HOST = "127.0.0.1:8000";
             var socket;
 
             function init() {
-                socket = io.connect(SERVER_HOST);
+
+			socket = io.connect(SERVER_HOST);
                 socket.emit("extension", null);
                 socket.on("music", function (data) {
                     command(data);
