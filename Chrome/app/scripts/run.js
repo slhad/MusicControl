@@ -17,7 +17,6 @@ socket.create('tcp',
 }
 
 function onAccept(acceptInfo){
-	console.log("ACCEPT", acceptInfo);
 	readFromSocket(acceptInfo.socketId);
 }
 			
@@ -40,23 +39,18 @@ return view;
 };
   
 var readFromSocket = function(socketId) {
-//  Read in the data
 socket.read(socketId, function(readInfo) {
-  console.log("READ", readInfo);
-  // Parse the request.
   var data = arrayBufferToString(readInfo.data);
   if(data.indexOf("GET ") == 0) {
 	var keepAlive = false;
 	if (data.indexOf("Connection: keep-alive") != -1) {
 	  keepAlive = true;
 	}
-	
-	// we can only deal with GET requests
 	var uriEnd =  data.indexOf(" ", 4);
-	if(uriEnd < 0) { /* throw a wobbler */ return; }
+	if(uriEnd < 0) { return; }
 	var uri = data.substring(4, uriEnd);
 
-	console.log("log url : "+data);
+	console.log("log url : "+uri);
 
 	if (uri.indexOf("?")==-1){
 		writeErrorResponse(socketId, 503, keepAlive, uri);
@@ -66,7 +60,6 @@ socket.read(socketId, function(readInfo) {
 	}
   }
   else {
-	// Throw an error
 	socket.destroy(socketId);
   }
 });
