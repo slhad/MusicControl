@@ -1,0 +1,19 @@
+{
+  "name": "Music Control",
+  "version": "1.0",
+  "description": "Allows you to control online music players with the keyboard.",
+  "icons": {"16":  "assets/music_control_16.png",
+            "48":  "assets/music_control_48.png",
+            "128": "assets/music_control_128.png"},
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [
+    "webRequest",
+    "http://localhost:8000",
+    "background",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
