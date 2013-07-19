@@ -1,5 +1,20 @@
 Music Control for Chrome
 
+Almost the same thing as the orginal version :
+	
+	1 - In Chrome, go to Window > Extensions. Make sure "Developer Mode" is checked.
+    2 - Click on "Load unpacked extension," then navigate to the "app" directory.
+	3 - Click on "Load unpacked extension," then navigate to the "extension" directory.
+	4 - Install any application that lets you map global keyboard shortcuts to shell scripts (or AppleScripts, but I prefer bash). I used an app called Shortcuts, but I'm sure there are plenty of free alternatives.
+    5 - Setup whatever keyboard shortcuts you want to map to the following bash commands (note that you can use something like wget rather than curl if you prefer):
+        curl "http://localhost:8000/music?play"
+        curl "http://localhost:8000/music?next"
+        curl "http://localhost:8000/music?previous"
+    6 - You're done! You should now be able to control you web-based music players with keyboard shortcuts.
+	
+
+Original Setup
+
 Setup from http://www.livingdigitally.net/2012/06/controlling-web-based-music-players-with-global-keyboard-shortcuts.html :
 
 ------------------------------------------------------------------
