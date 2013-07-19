@@ -9,6 +9,17 @@ function init() {
 			}
 		}
 	});
+
+	chrome.management.getAll(function (extensions) {
+		extensions.forEach(function (extension) {
+
+			if (extension.name == "Music Control Linker" &&
+				extension.description == "Allows you to link your online music players with Music Control Extension") {
+				chrome.runtime.sendMessage(extension.id,{id:chrome.runtime.id});
+					console.log("send id extension to app");
+				}
+		});
+	});
 }
 
 function command(action) {

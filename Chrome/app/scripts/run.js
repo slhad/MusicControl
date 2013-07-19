@@ -6,9 +6,20 @@ var socketHttpId;
 var socketInfo;
 
 
-var extensionId = "dennokdiimffhgjeieogikbdidlnghac";
+var extensionId;
 
 function runServer() {
+
+	chrome.runtime.onMessageExternal.addListener(
+		function (request, sender, sendResponse) {
+		if (request) {
+			if (request.id) {
+				console.log("extension registered");
+				extensionId = request.id;
+			}
+		}
+	});
+
 	socket.create('tcp',
 		function (socketInfoI) {
 		socketHttpId = socketInfoI.socketId;
