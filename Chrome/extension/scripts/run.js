@@ -39,7 +39,7 @@ function command(action) {
 		}
 	});
 	chrome.tabs.query({
-		title : "Amazon Cloud Player"
+		title : "Amazon Music Library"
 	}, function (tabs) {
 		if (tabs && tabs.length > 0) {
 			control("amazon", tabs[0].id, action);
@@ -56,11 +56,11 @@ function command(action) {
 
 function control(player, tabId, action) {
 	var file;
-	if (action === "play") {
+	if (action === "Play") {
 		file = "playPause.js";
-	} else if (action === "next") {
+	} else if (action === "Next") {
 		file = "next.js";
-	} else if (action === "previous") {
+	} else if (action === "Previous") {
 		file = "previous.js";
 	}
 	file = "scripts/" + player + "_" + file;
