@@ -1,7 +1,7 @@
 {
   "name": "Music Control",
   "version": "2.0",
-  "description": "Allows you to control online music players with the keyboard.",
+  "description": "Allows you to control online music players with the keyboard. Use Music Control Linker",
   "icons": {"16":  "assets/music_control_16.png",
             "48":  "assets/music_control_48.png",
             "128": "assets/music_control_128.png"},
@@ -10,12 +10,10 @@
   },
   "manifest_version": 2,
   "permissions": [
-    "webRequest",
     "background",
     "tabs",
     "http://*/*",
-    "http://127.0.0.1:8000/*",
     "https://*/*",
-	"management"
+    "management"
   ]
 }

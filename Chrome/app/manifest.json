@@ -1,19 +1,23 @@
 {
-  "name": "Music Control Linker",
-  "version": "2.0",
-  "description": "Allows you to link your online music players with Music Control Extension",
-  "icons": {"16":  "assets/music_control_16.png",
-            "48":  "assets/music_control_48.png",
-            "128": "assets/music_control_128.png"},
-  "app":{
-  "background": {
-    "page": "background.html"
-  }
-  },
-  "manifest_version": 2,
-  "permissions": [
-    {"socket": [
-		"tcp-listen::8000"
-    ]}
-  ]
+    "name": "Music Control Linker",
+    "version": "2.0",
+    "description": "Allows you to link your online music players with Music Control Extension",
+    "icons": {
+        "16": "assets/music_control_16.png",
+        "48": "assets/music_control_48.png",
+        "128": "assets/music_control_128.png"
+    },
+    "app": {
+        "background": {
+            "page": "background.html"
+        }
+    },
+    "manifest_version": 2,
+    "permissions": [
+        {
+            "socket": [
+                "tcp-listen::*"
+            ]
+        }
+    ]
 }
