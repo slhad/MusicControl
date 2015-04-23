@@ -52,6 +52,13 @@ function command(action) {
 			control("pandora", tabs[0].id, action);
 		}
 	});
+	chrome.tabs.query({
+        url : "https://*.soundcloud.com/*"
+	}, function (tabs) {
+		if (tabs && tabs.length > 0) {
+			control("soundcloud", tabs[0].id, action);
+		}
+	});
 }
 
 function control(player, tabId, action) {
