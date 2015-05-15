@@ -31,27 +31,34 @@ function sendExtensionId() {
 }
 
 function command(action) {
-    chrome.tabs.query({
-        title: "*Google*Play*"
-    }, function (tabs) {
-        if (tabs && tabs.length > 0) {
-            control("google", tabs[0].id, action);
-        }
-    });
-    chrome.tabs.query({
-        title: "Amazon Music Library"
-    }, function (tabs) {
-        if (tabs && tabs.length > 0) {
-            control("amazon", tabs[0].id, action);
-        }
-    });
-    chrome.tabs.query({
-        title: "Pandora Internet Radio*"
-    }, function (tabs) {
-        if (tabs && tabs.length > 0) {
-            control("pandora", tabs[0].id, action);
-        }
-    });
+	chrome.tabs.query({
+		title : "*Google*Play*Musi*"
+	}, function (tabs) {
+		if (tabs && tabs.length > 0) {
+			control("google", tabs[0].id, action);
+		}
+	});
+	chrome.tabs.query({
+		title : "Amazon Music Library"
+	}, function (tabs) {
+		if (tabs && tabs.length > 0) {
+			control("amazon", tabs[0].id, action);
+		}
+	});
+	chrome.tabs.query({
+		title : "Pandora Internet Radio*"
+	}, function (tabs) {
+		if (tabs && tabs.length > 0) {
+			control("pandora", tabs[0].id, action);
+		}
+	});
+	chrome.tabs.query({
+        url : "https://*.soundcloud.com/*"
+	}, function (tabs) {
+		if (tabs && tabs.length > 0) {
+			control("soundcloud", tabs[0].id, action);
+		}
+	});
 }
 
 function control(player, tabId, action) {
@@ -64,9 +71,13 @@ function control(player, tabId, action) {
     } else if (laction === "previous") {
         file = "previous.js";
     }
-    file = "scripts/" + player + "_" + file;
-    chrome.tabs.executeScript(tabId, {
-        file: file
-    });
+    if (file) {
+        file = "scripts/" + player + "_" + file;
+        chrome.tabs.executeScript(tabId, {
+            file: file
+        });
+    } else {
+        console.log("No script corresponding to action : " + laction);
+    }
 }
 init();
